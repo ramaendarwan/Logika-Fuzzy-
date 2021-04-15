@@ -1,0 +1,64 @@
+[System]
+Name='RamaEndarwan_123190146'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=6
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='suhu_badan'
+Range=[0 10]
+NumMFs=3
+MF1='rendah':'trimf',[-4 0 4]
+MF2='sedang':'trimf',[1 5 9]
+MF3='tinggi':'trimf',[6 10 14]
+
+[Input2]
+Name='pusing'
+Range=[0 10]
+NumMFs=2
+MF1='tidak_parah':'trimf',[-4 0 7]
+MF2='parah':'trimf',[3 10 14]
+
+[Input3]
+Name='mual'
+Range=[0 10]
+NumMFs=2
+MF1='tidak':'trimf',[-4 0 7]
+MF2='ya':'trimf',[3 10 14]
+
+[Output1]
+Name='kondisi_badan'
+Range=[0 30]
+NumMFs=3
+MF1='baik':'trimf',[0 5 10]
+MF2='sedang':'trimf',[10 15 20]
+MF3='parah':'trimf',[20 25 30]
+
+[Output2]
+Name='jumlah_obat'
+Range=[0 20]
+NumMFs=2
+MF1='sedikit':'trimf',[0 5 10]
+MF2='banyak':'trimf',[10 15 20]
+
+[Output3]
+Name='total_biaya'
+Range=[0 20]
+NumMFs=2
+MF1='murah':'trimf',[0 5 10]
+MF2='mahal':'trimf',[10 15 20]
+
+[Rules]
+1 1 1, 1 1 1 (1) : 1
+2 0 2, 2 1 1 (1) : 1
+3 2 2, 3 2 2 (1) : 1
+1 2 2, 3 2 2 (1) : 1
+3 1 1, 2 1 1 (1) : 1
+2 1 1, 1 1 1 (1) : 1
